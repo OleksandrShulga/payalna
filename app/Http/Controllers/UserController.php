@@ -39,7 +39,7 @@ class UserController extends Controller {
                 'email' => 'required|string|email',
                 'password' => 'required'
             ]);
-            if (Auth::attempt($auth, $request->_token)) {
+            if (Auth::attempt($auth)) {
                 $request->session()->regenerate();
                 return redirect()->intended('centralpage');
             }
